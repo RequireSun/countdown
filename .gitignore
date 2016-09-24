@@ -1,5 +1,7 @@
 # Temp files
+.idea
 lib
+dist
 
 # Logs
 logs

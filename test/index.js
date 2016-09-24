@@ -11,9 +11,21 @@ describe('countdown', function () {
         this.timeout(10000);
 
         it('The registered function should be emitted after 5 seconds', function (done) {
-            let count = 0;
+            const targetTime = Date.now() + 5000;
             new Countdown({
-                endTime: Date.now() + 5000,
+                endTime: targetTime,
+                onComplete: () => {
+                    assert.equal((Math.round((Date.now() - targetTime) / 1000)), 0);
+                    done();
+                }
+            });
+        });
+
+        it('The registered function should be emitted 4 times', function (done) {
+            let count = 0;
+            const targetTime = Date.now() + 5000;
+            new Countdown({
+                endTime: targetTime,
                 onTick: () => {
                     ++count;
                 },
@@ -24,4 +36,27 @@ describe('countdown', function () {
             });
         });
     });
+
+    describe('abort', function () {
+        this.timeout(10000);
+
+        it('Callback should be stoped at the third time', function (done) {
+            let   count      = 0;
+            const targetTime = Date.now() + 5000;
+            const cd = new Countdown({
+                endTime: targetTime,
+                onTick : () => {
+                    if (1 < count) {
+                        cd.abort();
+                    }
+                    ++count;
+                },
+            });
+
+            setTimeout(() => {
+                assert.equal(count, 3);
+                done();
+            }, 5000);
+        });
+    })
 });

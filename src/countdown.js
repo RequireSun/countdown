@@ -19,7 +19,6 @@ class Countdown {
         };
 
         if (Date.now() < endTime) {
-            console.log(111);
             this.interval = setInterval(tick, 1000);
         }
 

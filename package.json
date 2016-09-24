@@ -1,0 +1,25 @@
+{
+  "name": "countdown",
+  "version": "1.0.0",
+  "description": "count down plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/index.js && istanbul cover node_modules/mocha/bin/_mocha --report lcovonly --check-leaks test/",
+    "build:lib": "babel -d lib/ src/",
+    "build:umd": "npm run build:lib && webpack index.js dist/countdown.js --config webpack.config.development.js",
+    "build:umd:min": "npm run build:lib && webpack index.js dist/countdown.min.js --config webpack.config.production.js"
+  },
+  "author": "Require Sun <kelvinsen@outlook.com> (https://github.com/RequireSun)",
+  "license": "MIT",
+  "respository": {
+    "type": "git",
+    "url": "https://github.com/RequireSun/countdown.git"
+  },
+  "devDependencies": {
+    "babel": "^5.5.8",
+    "babel-loader": "^6.2.5",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.0.2",
+    "webpack": "^1.13.2"
+  }
+}

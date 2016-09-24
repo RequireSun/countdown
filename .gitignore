@@ -1,3 +1,6 @@
+# Temp files
+lib
+
 # Logs
 logs
 *.log

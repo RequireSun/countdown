@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test/index.js && istanbul cover node_modules/mocha/bin/_mocha --report lcovonly --check-leaks test/",
+    "cover-show": "istanbul cover node_modules/mocha/bin/_mocha",
     "build:lib": "babel -d lib/ src/",
     "build:umd": "npm run build:lib && webpack index.js dist/countdown.js --config webpack.config.development.js",
     "build:umd:min": "npm run build:lib && webpack index.js dist/countdown.min.js --config webpack.config.production.js"

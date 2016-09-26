@@ -32,7 +32,7 @@ class Countdown {
     }
 
     getRemaining () {
-        return this.endTime ? this.endTime - Date.now() : 0;
+        return this.endTime && this.endTime > Date.now() ? this.endTime - Date.now() : 0;
     }
 }
 

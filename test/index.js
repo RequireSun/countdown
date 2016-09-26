@@ -58,5 +58,26 @@ describe('countdown', function () {
                 done();
             }, 5000);
         });
-    })
+    });
+
+    describe('getRemaining', function () {
+        this.timeout(10000);
+
+        it('Remaining should the left time', function (done) {
+            const originTime = Date.now();
+            const targetTime = originTime + 5000;
+            let count = 5;
+
+            const cd = new Countdown({
+                endTime: targetTime,
+                onTick: () => {
+                    assert.equal(--count, Math.round(cd.getRemaining() / 1000));
+                },
+                onComplete: () => {
+                    assert.equal(0, Math.round(cd.getRemaining() / 1000));
+                    done();
+                }
+            });
+        });
+    });
 });

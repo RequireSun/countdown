@@ -7,8 +7,10 @@
     "test": "mocha test/index.js && istanbul cover node_modules/mocha/bin/_mocha --report lcovonly --check-leaks test/",
     "cover-show": "istanbul cover node_modules/mocha/bin/_mocha",
     "build:lib": "babel -d lib/ src/",
-    "build:umd": "npm run build:lib && webpack index.js dist/countdown.js --config webpack.config.development.js",
-    "build:umd:min": "npm run build:lib && webpack index.js dist/countdown.min.js --config webpack.config.production.js"
+    "build:umd": "webpack src/countdown.js dist/countdown.js --config webpack.config.development.js",
+    "build:umd:min": "webpack src/countdown.js dist/countdown.min.js --config webpack.config.production.js",
+    "build": "npm run build:lib && npm run build:umd && npm run build:umd:min",
+    "prepublish": "npm run clean && npm run build"
   },
   "author": "Require Sun <kelvinsen@outlook.com> (https://github.com/RequireSun)",
   "license": "MIT",

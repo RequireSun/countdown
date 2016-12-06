@@ -2,7 +2,8 @@ language: node_js
 node_js:
   - "node"
   - "stable"
-  - "iojs"
+  - "7.2"
+  - "6.0"
   - "5.5"
   - "4.1"
   - "4.0"

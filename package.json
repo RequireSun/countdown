@@ -1,6 +1,6 @@
 {
   "name": "@requiresun/countdown",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "count down plugin",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "build:umd:min": "webpack src/countdown.js dist/countdown.min.js --config webpack.config.production.js",
     "build": "npm run build:lib && npm run build:umd && npm run build:umd:min",
     "prepublish": "npm run clean && npm run build",
-    "publish": "npm publish --access=public"
+    "pub": "npm publish --access=public"
   },
   "author": "Require Sun <kelvinsen@outlook.com> (https://github.com/RequireSun)",
   "license": "MIT",

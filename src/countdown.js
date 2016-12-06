@@ -21,7 +21,6 @@ class Countdown {
         if (Date.now() < endTime) {
             this.interval = setInterval(tick, 1000);
         }
-
     }
 
     abort () {

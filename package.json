@@ -4,6 +4,7 @@
   "description": "count down plugin",
   "main": "index.js",
   "scripts": {
+    "clean": "rimraf lib dist",
     "test": "mocha test/index.js && istanbul cover node_modules/mocha/bin/_mocha --report lcovonly --check-leaks test/",
     "cover-show": "istanbul cover node_modules/mocha/bin/_mocha",
     "build:lib": "babel -d lib/ src/",
@@ -23,6 +24,7 @@
     "babel-loader": "^6.2.5",
     "istanbul": "^0.4.5",
     "mocha": "^3.0.2",
+    "rimraf": "^2.5.4",
     "webpack": "^1.13.2"
   }
 }

@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "node"
+  - "stable"
+  - "iojs"
+  - "5.5"
+  - "4.1"
+  - "4.0"
+matrix:
+  allow_failures:
+    - node_js: "0.12"
+    - node_js: "0.11"
+    - node_js: "0.10"
+    - node_js: "0.8"
+    - node_js: "0.6"
+script: "npm run test"
+after_script:
+  "npm install coveralls && cat ./coverage/lcov.info | coveralls"
